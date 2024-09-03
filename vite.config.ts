@@ -18,8 +18,8 @@ export default defineConfig({
         cleanupOutdatedCaches: false
       },
       manifest: {
-        name: 'My Vue 3 App',
-        short_name: 'VueApp',
+        name: 'Amir Maghami',
+        short_name: 'Amir dev',
         description: 'My awesome Vue 3 app!',
         theme_color: '#ffffff',
         display: 'fullscreen',
