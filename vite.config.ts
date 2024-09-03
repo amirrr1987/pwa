@@ -15,6 +15,10 @@ export default defineConfig({
         short_name: 'VueApp',
         description: 'My awesome Vue 3 app!',
         theme_color: '#ffffff',
+        display: "fullscreen",
+        orientation:"portrait",
+        dir: "ltr",
+        lang:"en-US",
         icons: [
           {
             src: 'icons/app-icon-192x192.png',
