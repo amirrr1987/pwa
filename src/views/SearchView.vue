@@ -1,7 +1,7 @@
 <template>
   <div>
     <video ref="video" autoplay></video>
-    <Button @click="takePicture">Take Picture</Button>
+    <Button @click="takePicture" type="primary">Take Picture</Button>
     <canvas ref="canvas" style="display: none"></canvas>
   </div>
 </template>
