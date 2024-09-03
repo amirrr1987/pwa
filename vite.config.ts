@@ -10,15 +10,22 @@ export default defineConfig({
     vue(),
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: 'auto',
+      workbox: {
+        clientsClaim: true,
+        skipWaiting: true,
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        cleanupOutdatedCaches: false
+      },
       manifest: {
         name: 'My Vue 3 App',
         short_name: 'VueApp',
         description: 'My awesome Vue 3 app!',
         theme_color: '#ffffff',
-        display: "fullscreen",
-        orientation:"portrait",
-        dir: "ltr",
-        lang:"en-US",
+        display: 'fullscreen',
+        orientation: 'portrait',
+        dir: 'ltr',
+        lang: 'en-US',
         icons: [
           {
             src: 'icons/app-icon-192x192.png',
