@@ -13,8 +13,8 @@ watch(active, () => {})
     <Tabbar v-model="active">
       <TabbarItem icon="home-o" to="/"> Home </TabbarItem>
       <TabbarItem icon="search" to="/about"> Tab </TabbarItem>
-      <TabbarItem icon="friends-o">Tab</TabbarItem>
-      <TabbarItem icon="setting-o">Setting</TabbarItem>
+      <TabbarItem icon="friends-o" to="/search">Search</TabbarItem>
+      <TabbarItem icon="setting-o" to="/setting">Setting</TabbarItem>
     </Tabbar>
   </ConfigProvider>
 </template>
