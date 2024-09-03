@@ -3,6 +3,14 @@
     <video ref="video" autoplay></video>
     <Button @click="takePicture" type="primary">Take Picture</Button>
     <canvas ref="canvas" style="display: none"></canvas>
+
+    <!-- نمایش گالری -->
+    <div v-if="gallery.length > 0">
+      <h3>Gallery</h3>
+      <div class="gallery">
+        <img v-for="(image, index) in gallery" :key="index" :src="image" alt="Captured image" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -12,6 +20,7 @@ import { Button } from 'vant'
 
 const video = ref<HTMLVideoElement | null>(null)
 const canvas = ref<HTMLCanvasElement | null>(null)
+const gallery = ref<string[]>([]) // آرایه برای ذخیره تصاویر
 
 async function getMedia() {
   const constraints = { video: true }
@@ -33,8 +42,7 @@ function takePicture() {
       canvas.value.height = video.value.videoHeight
       context.drawImage(video.value, 0, 0, canvas.value.width, canvas.value.height)
       const imageDataURL = canvas.value.toDataURL('image/png')
-      alert(imageDataURL) // The image as a Data URL
-      // You can also do something with imageDataURL, like sending it to a server or displaying it.
+      gallery.value.push(imageDataURL) // اضافه کردن تصویر به گالری
     }
   }
 }
@@ -43,3 +51,18 @@ onMounted(() => {
   getMedia()
 })
 </script>
+
+<style>
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+</style>
