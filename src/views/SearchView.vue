@@ -13,7 +13,7 @@ async function getMedia(constraints: MediaStreamConstraints | undefined) {
   let stream = null
 
   try {
-    stream = await navigator.mediaDevices.getUserMedia(constraints)
+    stream = await window.navigator.mediaDevices.getUserMedia(constraints)
     alert(stream)
     /* use the stream */
   } catch (err) {
