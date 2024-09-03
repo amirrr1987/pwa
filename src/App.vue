@@ -11,10 +11,10 @@ watch(active, () => {})
   <ConfigProvider theme="light">
     <RouterView />
     <Tabbar v-model="active">
-      <RouterLink to="/"><TabbarItem icon="home-o">Tab</TabbarItem></RouterLink>
-      <RouterLink to="/about"><TabbarItem icon="search">Tab</TabbarItem></RouterLink>
+      <TabbarItem icon="home-o" to="/"> Home </TabbarItem>
+      <TabbarItem icon="search" to="/about"> Tab </TabbarItem>
       <TabbarItem icon="friends-o">Tab</TabbarItem>
-      <TabbarItem icon="setting-o">Tab</TabbarItem>
+      <TabbarItem icon="setting-o">Setting</TabbarItem>
     </Tabbar>
   </ConfigProvider>
 </template>
