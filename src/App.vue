@@ -11,6 +11,9 @@ watch(active, () => {})
 
 <template>
   <ConfigProvider theme="light">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum rerum mollitia assumenda iusto aliquid qui, labore, ea recusandae eius laboriosam dolor, minus necessitatibus animi. Tempore porro tempora doloribus reiciendis facere?
+    </p>
     <RouterView />
     <PWABadge />
     <Tabbar v-model="active">
