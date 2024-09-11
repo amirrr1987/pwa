@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RouterView, RouterLink, useRouter } from 'vue-router'
-import PWABadge from './components/PWABadge.vue'
 
 import { Card, ConfigProvider, Tabbar, TabbarItem } from 'vant'
 import { onMounted, ref, watch } from 'vue'
@@ -35,7 +34,6 @@ onMounted(async () => getData())
     />
 
     <RouterView />
-    <PWABadge />
     <Tabbar v-model="active">
       <TabbarItem icon="home-o" to="/"> Home </TabbarItem>
       <TabbarItem icon="search" to="/about"> Tab </TabbarItem>
