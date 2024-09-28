@@ -30,15 +30,11 @@ export default defineConfig({
         lang: 'en-US',
         icons: [
           {
-            src: 'icons/app-icon-192x192.png',
+            src: 'icon.png',
             sizes: '192x192',
             type: 'image/png'
           },
-          {
-            src: 'icons/app-icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
+
         ]
       },
 
