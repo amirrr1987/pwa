@@ -28,13 +28,19 @@ export default defineConfig({
         orientation: 'portrait',
         dir: 'ltr',
         lang: 'en-US',
+        screenshots: [
+          {
+            label: 'asdasd',
+            src: 'https://picsum.photos/200/300',
+            sizes: 'any'
+          }
+        ],
         icons: [
           {
             src: 'icon.png',
             sizes: '192x192',
             type: 'image/png'
-          },
-
+          }
         ]
       },
 
