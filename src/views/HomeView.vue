@@ -6,14 +6,13 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useUserMedia } from '@vueuse/core'
 
-const video = ref(null)
-const { stream, start, stop } = useUserMedia({
-  video: true
-})
+const video = ref<HTMLVideoElement | null>(null)
+
+const { stream, start, stop } = useUserMedia({ enabled: true })
 
 onMounted(() => {
   if (video.value && stream.value) {
@@ -22,6 +21,6 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  stop() // دوربین را متوقف می‌کند
+  stop()
 })
 </script>
