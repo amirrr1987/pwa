@@ -10,40 +10,53 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
-     VitePWA({
-      registerType: "autoUpdate",
+    VitePWA({
+      registerType: 'autoUpdate',
       injectRegister: false,
 
       pwaAssets: {
         disabled: false,
-        config: true,
+        config: true
       },
 
       manifest: {
-        name: "dongeman",
-        short_name: "dongeman",
-        description: "dongeman",
-        theme_color: "#ffffff",
+        name: 'dongeman',
+        short_name: 'dongeman',
+        description: 'dongeman',
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
+        display: 'standalone',
+        icons: [
+          {
+            src: 'public/favicon.svg',
+            sizes: '192x192',
+            type: 'image/svg+xml'
+          },
+          {
+            src: 'public/favicon.svg',
+            sizes: '512x512',
+            type: 'image/svg+xml'
+          }
+        ]
       },
 
       workbox: {
-        globPatterns: ["**/*.{js,css,html,svg,png,ico}"],
+        globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
         cleanupOutdatedCaches: true,
-        clientsClaim: true,
+        clientsClaim: true
       },
 
       devOptions: {
         enabled: false,
-        navigateFallback: "index.html",
+        navigateFallback: 'index.html',
         suppressWarnings: true,
-        type: "module",
-      },
-    }),
+        type: 'module'
+      }
+    })
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  },
-  
+  }
 })
