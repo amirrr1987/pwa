@@ -30,8 +30,8 @@ export default defineConfig({
         lang: 'en-US',
         screenshots: [
           {
-            label: 'asdasd',
-            src: 'https://picsum.photos/200/300',
+            label: 'Test',
+            src: 'splash.png',
             sizes: 'any'
           }
         ],
