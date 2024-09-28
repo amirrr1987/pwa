@@ -1,46 +1,85 @@
 <script setup lang="ts">
-import { RouterView, RouterLink, useRouter } from 'vue-router'
-import PWABadge from './components/PWABadge.vue'
-
-import { Card, ConfigProvider, Tabbar, TabbarItem } from 'vant'
-import { onMounted, ref, watch } from 'vue'
-import axios from 'axios'
-import type { Product } from './types/ProductModel'
-const active = ref(0)
-const router = useRouter()
-watch(active, () => {})
-const products = ref<Product[]>([])
-const getData = async () => {
-  try {
-    const { data } = await axios.get('https://fakestoreapi.com/products')
-    products.value = data
-    console.log('🚀 ~ getData ~ data:', data)
-  } catch (error) {
-    console.log('🚀 ~ getData ~ error:', error)
-  }
-}
-onMounted(async () => getData())
+import { RouterLink, RouterView } from 'vue-router'
+import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <ConfigProvider theme="light">
-    <Card
-      v-for="item in products"
-      :key="item.id"
-      num="2"
-      :price="item.price"
-      :title="item.title"
-      :desc="item.description"
-      :thumb="item.image"
-    />
+  <header>
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-    <RouterView />
-    <PWABadge />
-    <Tabbar v-model="active">
-      <TabbarItem icon="home-o" to="/"> Home </TabbarItem>
-      <TabbarItem icon="search" to="/about"> Tab </TabbarItem>
-      <TabbarItem icon="friends-o" to="/search">Search</TabbarItem>
-      <TabbarItem icon="setting-o" to="/setting">Setting</TabbarItem>
-    </Tabbar>
-  </ConfigProvider>
+    <div class="wrapper">
+      <HelloWorld msg="You did it!" />
+
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
 </template>
+
+<style scoped>
+header {
+  line-height: 1.5;
+  max-height: 100vh;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+nav a.router-link-exact-active {
+  color: var(--color-text);
+}
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    text-align: left;
+    margin-left: -1rem;
+    font-size: 1rem;
+
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
+}
+</style>
